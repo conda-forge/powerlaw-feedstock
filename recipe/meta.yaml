@@ -11,7 +11,7 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
 
 requirements:
@@ -19,7 +19,7 @@ requirements:
     - pip
     - python
   run:
-    - matplotlib
+    - matplotlib-base
     - mpmath
     - numpy
     - python

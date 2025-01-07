@@ -11,20 +11,23 @@ source:
 
 build:
   noarch: python
-  number: 1
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+  number: 2
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
+    - python {{ python_min }}
+    - setuptools
     - pip
-    - python
   run:
     - matplotlib-base
     - mpmath
     - numpy
-    - python
+    - python >={{ python_min }}
     - scipy
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - powerlaw
 

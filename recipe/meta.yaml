@@ -12,12 +12,13 @@ source:
 build:
   noarch: python
   number: 2
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
-    - pip
     - python {{ python_min }}
+    - setuptools
+    - pip
   run:
     - matplotlib-base
     - mpmath
